@@ -6,7 +6,7 @@ import { addToCart } from '../store/product.actions';
 
 @Component({
   selector: 'app-details',
-  templateUrl: './details.component.html',
+  templateUrl: './details.component.html'
 })
 
 export class DetailsComponent implements OnInit {
@@ -18,7 +18,7 @@ export class DetailsComponent implements OnInit {
 
   addItemToCart() {
     const product = {
-      image: '../assets/image-product-1-thumbnail.jpg', // Adjust path if needed
+      image: '../assets/image-product-1-thumbnail.jpg',
       name: "Fall Limited Edition",
       price: 125.00,
       quantity: this.count

@@ -1,5 +1,4 @@
-<body class="w-full flex items-center gap-20 justify-center h-[35.3125rem] mobile:hidden tablet:hidden">
-
+<body class="w-full h-full flex items-center gap-20 justify-center  mobile:hidden tablet:hidden">
   <section class="flex flex-col items-center gap-y-4">
       <div id="main-img">
           <img ref="mainImage" [src]="imageRef"  class="cursor-pointer w-[27.8125rem] h-[27.8125rem] rounded-[0.9375rem]" [alt]="imageRef" (click)="clicked = !clicked" alt="">
@@ -12,7 +11,7 @@
       </div>
   </section>
   <!-- Modal -->
-  <section class="absolute inset-0 bg-[#000] bg-opacity-75 flex flex-col items-center justify-center gap-y-4" :class=" clicked ? 'block' : 'hidden'">
+  <section class="absolute inset-0 bg-[#000] bg-opacity-75 flex flex-col items-center justify-center gap-y-4 border w-full h-full" [class]=" clicked ? 'block' : 'hidden'">
       <div id="main-img" class="flex flex-col gap-y-8">
           <img src="../assets/icon-close.svg" class="self-end w-4 h-4 cursor-pointer" (click)="clicked = !clicked" alt=""/>
           <div class="flex items-center">
@@ -35,6 +34,8 @@
   <!-- Modal -->
   <app-details></app-details>
 </body>
+
+<!-- Mobile -->
 <body class="mobile:w-full mobile:block mobile:pb-[7rem] laptop:hidden">
   <section class="w-full">
       <div class="flex items-center">
@@ -49,3 +50,4 @@
   </section>
   <app-details></app-details>
 </body>
+<!-- Mobile -->

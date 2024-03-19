@@ -1,8 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import productImage1 from '../../assets/product1.jpg';
-import productImage2 from '../../assets/product2.jpg';
-import productImage3 from '../../assets/product3.jpg';
-import productImage4 from '../../assets/product4.jpg';
+
 
 @Component({
   selector: 'app-product',
@@ -11,14 +8,14 @@ import productImage4 from '../../assets/product4.jpg';
 
 export class ProductComponent implements OnInit{
   clicked: boolean = false;
-  imageRef = 'productImage1';
+  imageRef = '../../assets/product1.jpg';
   currentImageIndex = 0;
 
   imgList = [
-    productImage1,
-    productImage2,
-    productImage3,
-    productImage4
+    '../../assets/product1.jpg',
+    '../../assets/product2.jpg',
+    '../../assets/product3.jpg',
+    '../../assets/product4.jpg'
   ]
 
   ngOnInit(): void {}

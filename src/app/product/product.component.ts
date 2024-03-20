@@ -7,7 +7,7 @@ import { Component,OnInit } from '@angular/core';
 })
 
 export class ProductComponent implements OnInit{
-  clicked: boolean = false;
+  clicked: boolean = true;
   imageRef = '../../assets/product1.jpg';
   currentImageIndex = 0;
 

@@ -23,6 +23,7 @@ export class DetailsComponent implements OnInit {
       price: 125.00,
       quantity: this.count
     }
+    console.log('addItemto Cart is clicked')
     this.store.dispatch(addToCart({product}))
   }
 

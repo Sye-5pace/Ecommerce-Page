@@ -20,7 +20,7 @@ export const productReducer = createReducer(
   initialState,
   on(ProductActions.addToCart, (state, {product}) => ({
     ...state,
-    items: [...state.cartItems, product]
+    cartItems: [...state.cartItems, product]
   })),
   on(ProductActions.clearCart, (state) => ({
     ...state,

@@ -1,8 +1,9 @@
+import { clearCart } from './../store/product.actions';
 import { Component,OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { ProductState } from '../store/product.reducer';
 import { cartCount } from '../store/product.selector'
-import { clearCart } from '../store/product.actions';
+
 
 
 @Component({
@@ -12,18 +13,20 @@ import { clearCart } from '../store/product.actions';
 
 export class HeaderComponent implements OnInit {
   clicked: boolean = false;
-  cartCount: number = 0;
+  cartItemCount: number = 0; 
+  modalClicked: boolean = false; 
+  mobileClicked: boolean = false
 
-  constructor(private store: Store<ProductState>){ }
+  constructor(private store: Store<{product: ProductState}>){ }
 
   ngOnInit(): void{
-    this.store.pipe(select(cartCount)).subscribe( cart => {
-      this.cartCount = cart.length;
-      console.log(this.cartCount)
+    this.store.pipe(select(cartCount)).subscribe(count => {
+      this.cartItemCount = count
     })
   }
 
-  clearCart() : void {
+  clearCart() {
     this.store.dispatch(clearCart())
   }
+
 }

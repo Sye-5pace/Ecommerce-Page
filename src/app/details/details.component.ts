@@ -1,7 +1,8 @@
 import { Component,OnInit } from '@angular/core';
-import { Store } from '@ngrx/store'
+import { Store,select } from '@ngrx/store'
 import { ProductState } from '../store/product.reducer';
 import { addToCart } from '../store/product.actions';
+// import { cartItems } from '../store/product.selector';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { addToCart } from '../store/product.actions';
 
 export class DetailsComponent implements OnInit {
   count = 0;
+  cartLength = 0;
 
   constructor(private store: Store<ProductState>){}
 
@@ -23,12 +25,13 @@ export class DetailsComponent implements OnInit {
       price: 125.00,
       quantity: this.count
     }
-    console.log('addItemto Cart is clicked')
     this.store.dispatch(addToCart({product}))
-  }
+    }
 
   decrement(){
-    this.count--;
+    if (this.count > 1) {
+      this.count--;
+    }
   }
 
   increment(){

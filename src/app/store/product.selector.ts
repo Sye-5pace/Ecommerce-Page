@@ -3,9 +3,7 @@ import { ProductState } from './product.reducer'
 
 export const productState = createFeatureSelector<ProductState>('product')
 
-export const cartCount = createSelector(
+export const cartItems = createSelector(
   productState,
-  (state) => {
-    return state.cartItems.reduce((total, item) => total + item.quantity, 0);
-  }
+  (state) => state.cartItems
 )

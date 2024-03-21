@@ -16,6 +16,7 @@
         </svg>
         <img src="../assets/image-avatar.png" alt="image-profile" class="w-[3.125rem] cursor-pointer hover:border-2 hover:border-pumpkin hover:rounded-full"/>
     </div>
+    <!-- cart card -->
     <div class="bg-[#fff] absolute w-[22.5rem] h-[13.125rem] inset-0 flex flex-col gap-y-4   rounded-[0.625rem] py-4 shadow-xl  left-[67%] top-[7.5rem]" [class]="clicked ? 'block' : 'hidden'" >
         <div class="px-4 pb-2 border-b border-catskwhite">
             <h3 class="font-bold">Cart</h3>
@@ -33,7 +34,7 @@
           </div>
           <button class="rounded-[0.625rem] bg-pumpkin text-[#fff] h-[3.5rem] w-[19.5rem]">checkout</button>
       </div>
-      <div class="flex items-center justify-center w-full h-full" *ngElse>
+      <div class="flex items-center justify-center w-full h-full" ng-else>
           <h3 class="text-[1rem] font-bold text-palesky">Your card is empty.</h3>
       </div>
   </div>
@@ -71,7 +72,7 @@
                   </div>
                   <button class="rounded-[0.625rem] bg-pumpkin text-[#fff] h-[3.5rem] w-[19.5rem]">checkout</button>
               </div>
-              <div class="flex items-center justify-center w-full h-full" *ngElse>
+              <div class="flex items-center justify-center w-full h-full" ng-else>
                   <h3 class="text-[1rem] font-bold text-palesky">Your card is empty.</h3>
               </div>
           </div>

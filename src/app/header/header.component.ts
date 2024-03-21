@@ -2,7 +2,7 @@ import { clearCart } from './../store/product.actions';
 import { Component,OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { ProductState } from '../store/product.reducer';
-import { cartCount } from '../store/product.selector'
+import { cartItems } from '../store/product.selector'
 
 
 
@@ -13,20 +13,24 @@ import { cartCount } from '../store/product.selector'
 
 export class HeaderComponent implements OnInit {
   clicked: boolean = false;
-  cartItemCount: number = 0; 
+  cartItemCount: number ; 
   modalClicked: boolean = false; 
   mobileClicked: boolean = false
-
-  constructor(private store: Store<{product: ProductState}>){ }
+  
+  constructor(private store: Store<ProductState>) {
+    this.cartItemCount = 0;  
+    this.store.pipe(select(cartItems)).subscribe(item => {
+      if (item) {
+        this.cartItemCount = item.reduce((total, item) => total + item.quantity, 0);
+      }
+    });
+  }
 
   ngOnInit(): void{
-    this.store.pipe(select(cartCount)).subscribe(count => {
-      this.cartItemCount = count
-    })
+    
   }
 
   clearCart() {
     this.store.dispatch(clearCart())
   }
-
 }

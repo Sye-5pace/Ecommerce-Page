@@ -18,10 +18,13 @@ export const initialState: ProductState = {
 
 export const productReducer = createReducer(
   initialState,
-  on(ProductActions.addToCart, (state, {product}) => ({
-    ...state,
-    cartItems: [...state.cartItems, product]
-  })),
+  on(ProductActions.addToCart, (state, { product }) => {
+    console.log('Before:', state);
+    return {
+      ...state,
+      cartItems: [...state.cartItems, product]
+    };
+  }),
   on(ProductActions.clearCart, (state) => ({
     ...state,
     cartItems:[]
